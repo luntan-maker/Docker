@@ -1,0 +1,268 @@
+Sending build context to Docker daemon   2.56kB
+
+Step 1/2 : FROM ocaml/opam2
+ ---> f58ef9d0ce70
+Step 2/2 : RUN sudo apt update&& sudo apt install curl -y&& sudo apt install m4 -y&& opam pin add coq 8.11.1&& eval $(opam env)&& cd ..&& git clone -b flat-syntax-parametric https://github.com/atlanmod/CoqTL.git&& cd CoqTL&& cd fr.inria.atlanmod.coqtl.coq&& git clean -fdx&& coq_makefile -f _CoqProject -o Makefile&& make
+ ---> Running in a617bcba2cc4
+[91m
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+[0mGet:1 http://deb.debian.org/debian buster InRelease [121 kB]
+Get:2 http://security.debian.org/debian-security buster/updates InRelease [65.4 kB]
+Get:3 http://deb.debian.org/debian buster-updates InRelease [51.9 kB]
+Get:4 http://deb.debian.org/debian buster/main amd64 Packages [7905 kB]
+Get:5 http://security.debian.org/debian-security buster/updates/main amd64 Packages [208 kB]
+Get:6 http://deb.debian.org/debian buster-updates/main amd64 Packages.diff/Index [3688 B]
+Get:7 http://deb.debian.org/debian buster-updates/main amd64 Packages 2020-06-04-2016.16.pdiff [1101 B]
+Get:8 http://deb.debian.org/debian buster-updates/main amd64 Packages 2020-06-07-1403.53.pdiff [439 B]
+Get:9 http://deb.debian.org/debian buster-updates/main amd64 Packages 2020-06-13-2000.26.pdiff [552 B]
+Get:9 http://deb.debian.org/debian buster-updates/main amd64 Packages 2020-06-13-2000.26.pdiff [552 B]
+Fetched 8358 kB in 5s (1710 kB/s)
+Reading package lists...
+Building dependency tree...
+Reading state information...
+12 packages can be upgraded. Run 'apt list --upgradable' to see them.
+[91m
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+[0mReading package lists...
+Building dependency tree...
+Reading state information...
+curl is already the newest version (7.64.0-4+deb10u1).
+0 upgraded, 0 newly installed, 0 to remove and 12 not upgraded.
+[91m
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+[0mReading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  libsigsegv2
+Suggested packages:
+  m4-doc
+The following NEW packages will be installed:
+  libsigsegv2 m4
+0 upgraded, 2 newly installed, 0 to remove and 12 not upgraded.
+Need to get 236 kB of archives.
+After this operation, 419 kB of additional disk space will be used.
+Get:1 http://deb.debian.org/debian buster/main amd64 libsigsegv2 amd64 2.12-2 [32.8 kB]
+Get:2 http://deb.debian.org/debian buster/main amd64 m4 amd64 1.4.18-2 [203 kB]
+[91mdebconf: delaying package configuration, since apt-utils is not installed
+[0mFetched 236 kB in 0s (1077 kB/s)
+Selecting previously unselected package libsigsegv2:amd64.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 17379 files and directories currently installed.)
+Preparing to unpack .../libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../archives/m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up m4 (1.4.18-2) ...
+Processing triggers for libc-bin (2.28-10) ...
+coq is now pinned to version 8.11.1
+
+The following actions will be performed:
+  - install conf-findutils 1       [required by coq]
+  - install conf-m4        1       [required by ocamlfind]
+  - install ocamlfind      1.8.1   [required by coq]
+  - install num            1.3     [required by coq]
+  - install coq            8.11.1*
+===== 5 to install =====
+
+<><> Gathering sources ><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+[num.1.3] downloaded from https://github.com/ocaml/num/archive/v1.3.tar.gz
+[ocamlfind.1.8.1] downloaded from http://download.camlcity.org/download/findlib-1.8.1.tar.gz
+[coq.8.11.1] downloaded from https://github.com/coq/coq/archive/V8.11.1.tar.gz
+
+<><> Processing actions <><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+-> installed conf-findutils.1
+-> installed conf-m4.1
+-> installed ocamlfind.1.8.1
+-> installed num.1.3
+-> installed coq.8.11.1
+Done.
+# Run eval $(opam env) to update the current shell environment
+[91mCloning into 'CoqTL'...
+[0m[91mWarning: no common logical root
+Warning: in such case INSTALLDEFAULTROOT must be defined
+Warning: the install-doc target is going to install files
+Warning: in orphan_core_examples
+[0m[91mMakefile:676: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.vo' given more than once in the same rule
+Makefile:676: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.vo' given more than once in the same rule
+Makefile:681: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.glob' given more than once in the same rule
+Makefile:681: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.glob' given more than once in the same rule
+[0m[91mMakefile:684: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.vio' given more than once in the same rule
+Makefile:684: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.vio' given more than once in the same rule
+[0m[91mMakefile:688: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.vos' given more than once in the same rule
+Makefile:688: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.vos' given more than once in the same rule
+[0m[91mMakefile:692: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.vok' given more than once in the same rule
+Makefile:692: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.vok' given more than once in the same rule
+[0m[91mMakefile:696: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.v.timing.diff' given more than once in the same rule
+Makefile:696: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.v.timing.diff' given more than once in the same rule
+Makefile:700: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.v.beautified' given more than once in the same rule
+Makefile:700: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.v.beautified' given more than once in the same rule
+Makefile:704: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.tex' given more than once in the same rule
+Makefile:704: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.tex' given more than once in the same rule
+Makefile:708: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.g.tex' given more than once in the same rule
+Makefile:708: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.g.tex' given more than once in the same rule
+Makefile:712: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.html' given more than once in the same rule
+Makefile:712: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.html' given more than once in the same rule
+Makefile:716: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.g.html' given more than once in the same rule
+Makefile:716: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.g.html' given more than once in the same rule
+[0mCOQDEP VFILES
+[91mMakefile:676: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.vo' given more than once in the same rule
+Makefile:676: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.vo' given more than once in the same rule
+[0m[91mMakefile:681: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.glob' given more than once in the same rule
+Makefile:681: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.glob' given more than once in the same rule
+[0m[91mMakefile:684: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.vio' given more than once in the same rule
+Makefile:684: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.vio' given more than once in the same rule
+[0m[91mMakefile:688: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.vos' given more than once in the same rule
+Makefile:688: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.vos' given more than once in the same rule
+[0m[91mMakefile:692: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.vok' given more than once in the same rule
+Makefile:692: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.vok' given more than once in the same rule
+[0m[91mMakefile:696: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.v.timing.diff' given more than once in the same rule
+Makefile:696: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.v.timing.diff' given more than once in the same rule
+[0m[91mMakefile:700: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.v.beautified' given more than once in the same rule
+Makefile:700: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.v.beautified' given more than once in the same rule
+[0m[91mMakefile:704: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.tex' given more than once in the same rule
+Makefile:704: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.tex' given more than once in the same rule
+[0m[91mMakefile:708: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.g.tex' given more than once in the same rule
+Makefile:708: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.g.tex' given more than once in the same rule
+[0m[91mMakefile:712: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.html' given more than once in the same rule
+Makefile:712: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.html' given more than once in the same rule
+[0m[91mMakefile:716: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.g.html' given more than once in the same rule
+Makefile:716: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.g.html' given more than once in the same rule
+[0m[91mMakefile:676: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.vo' given more than once in the same rule
+Makefile:676: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.vo' given more than once in the same rule
+Makefile:681: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.glob' given more than once in the same rule
+Makefile:681: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.glob' given more than once in the same rule
+[0m[91mMakefile:684: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.vio' given more than once in the same rule
+Makefile:684: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.vio' given more than once in the same rule
+[0m[91mMakefile:688: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.vos' given more than once in the same rule
+Makefile:688: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.vos' given more than once in the same rule
+[0m[91mMakefile:692: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.vok' given more than once in the same rule
+Makefile:692: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.vok' given more than once in the same rule
+[0m[91mMakefile:696: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.v.timing.diff' given more than once in the same rule
+Makefile:696: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.v.timing.diff' given more than once in the same rule
+[0m[91mMakefile:700: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.v.beautified' given more than once in the same rule
+Makefile:700: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.v.beautified' given more than once in the same rule
+[0m[91mMakefile:704: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.tex' given more than once in the same rule
+Makefile:704: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.tex' given more than once in the same rule
+[0m[91mMakefile:708: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.g.tex' given more than once in the same rule
+Makefile:708: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.g.tex' given more than once in the same rule
+[0m[91mMakefile:712: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.html' given more than once in the same rule
+Makefile:712: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.html' given more than once in the same rule
+[0m[91mMakefile:716: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.g.html' given more than once in the same rule
+Makefile:716: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.g.html' given more than once in the same rule
+[0m[91mMakefile:676: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.vo' given more than once in the same rule
+Makefile:676: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.vo' given more than once in the same rule
+[0m[91mMakefile:681: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.glob' given more than once in the same rule
+Makefile:681: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.glob' given more than once in the same rule
+[0m[91mMakefile:684: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.vio' given more than once in the same rule
+Makefile:684: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.vio' given more than once in the same rule
+[0m[91mMakefile:688: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.vos' given more than once in the same rule
+Makefile:688: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.vos' given more than once in the same rule
+[0m[91mMakefile:692: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.vok' given more than once in the same rule
+Makefile:692: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.vok' given more than once in the same rule
+[0m[91mMakefile:696: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.v.timing.diff' given more than once in the same rule
+Makefile:696: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.v.timing.diff' given more than once in the same rule
+[0m[91mMakefile:700: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.v.beautified' given more than once in the same rule
+Makefile:700: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.v.beautified' given more than once in the same rule
+[0m[91mMakefile:704: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.tex' given more than once in the same rule
+Makefile:704: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.tex' given more than once in the same rule
+[0m[91mMakefile:708: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.g.tex' given more than once in the same rule
+Makefile:708: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.g.tex' given more than once in the same rule
+[0m[91mMakefile:712: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.html' given more than once in the same rule
+Makefile:712: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.html' given more than once in the same rule
+[0m[91mMakefile:716: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.g.html' given more than once in the same rule
+Makefile:716: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.g.html' given more than once in the same rule
+[0mCOQC core/utils/CpdtTactics.v
+COQC core/utils/NotationUtils.v
+COQC core/utils/BoolUtils.v
+COQC core/utils/PropUtils.v
+COQC core/utils/ArithUtils.v
+COQC core/utils/ListUtils.v
+COQC core/utils/ConcatUtils.v
+COQC core/utils/TupleUtils.v
+COQC core/utils/StringUtils.v
+COQC core/utils/PrintUtils.v
+COQC core/utils/DatatypeUtils.v
+COQC core/utils/TopUtils.v
+COQC core/Model.v
+COQC core/Metamodel.v
+COQC core/Expressions.v
+COQC core/Engine.v
+COQC core/EngineProofs.v
+COQC core/Syntax.v
+COQC core/Semantics.v
+COQC core/Certification.v
+COQC core/Semantics_v2.v
+COQC core/Certification_v2.v
+COQC core/Semantics_v4.v
+COQC core/Certification_v4.v
+COQC examples/Class2Relational/ClassMetamodel.v
+COQC examples/Class2Relational/RelationalMetamodel.v
+COQC examples/Class2Relational/Class2Relational.v
+COQC examples/Class2Relational/tests/PersonModel.v
+COQC examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.v
+COQC examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.v
+COQC examples/Class2Relational/Theorems/All_classes_instantiate_impl.v
+COQC examples/Class2Relational/Theorems/All_classes_instantiate_spec.v
+COQC examples/HSM2FSM/HSM.v
+fun c : AbstractState_EClass => AbstractState_getEAttributeTypesByEClass c
+     : AbstractState_EClass -> Set
+Build_HSMMetamodel_EObject AbstractStateEClass
+  (BuildAbstractState InitialStateEClass (BuildInitialState "A" "05"))
+     : HSMMetamodel_EObject
+     = return BuildInitialState "A" "05"
+     : option (AbstractState_getTypeByEClass InitialStateEClass)
+     = (AbstractState_EClass * AbstractState)%type
+     : Type
+COQC examples/HSM2FSM/HSM2FSM.v
+[91mMakefile:676: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.vo' given more than once in the same rule
+Makefile:676: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.vo' given more than once in the same rule
+[0m[91mMakefile:681: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.glob' given more than once in the same rule
+Makefile:681: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.glob' given more than once in the same rule
+[0m[91mMakefile:684: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.vio' given more than once in the same rule
+Makefile:684: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.vio' given more than once in the same rule
+[0m[91mMakefile:688: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.vos' given more than once in the same rule
+Makefile:688: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.vos' given more than once in the same rule
+[0m[91mMakefile:692: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.vok' given more than once in the same rule
+Makefile:692: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.vok' given more than once in the same rule
+[0m[91mMakefile:696: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.v.timing.diff' given more than once in the same rule
+Makefile:696: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.v.timing.diff' given more than once in the same rule
+[0m[91mMakefile:700: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.v.beautified' given more than once in the same rule
+Makefile:700: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.v.beautified' given more than once in the same rule
+[0m[91mMakefile:704: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.tex' given more than once in the same rule
+Makefile:704: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.tex' given more than once in the same rule
+[0m[91mMakefile:708: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.g.tex' given more than once in the same rule
+Makefile:708: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.g.tex' given more than once in the same rule
+[0m[91mMakefile:712: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.html' given more than once in the same rule
+Makefile:712: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.html' given more than once in the same rule
+[0m[91mMakefile:716: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_impl.g.html' given more than once in the same rule
+Makefile:716: target 'examples/Class2Relational/Theorems/Concrete_attributes_instantiate_spec.g.html' given more than once in the same rule
+[0mRemoving intermediate container a617bcba2cc4
+ ---> 999a6cc67df5
+Successfully built 999a6cc67df5
+Successfully tagged coqtl_flat_param:latest
