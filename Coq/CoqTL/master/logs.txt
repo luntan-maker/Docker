@@ -1,0 +1,114 @@
+Sending build context to Docker daemon  4.608kB
+
+Step 1/4 : FROM ocaml/opam2
+ ---> f58ef9d0ce70
+Step 2/4 : RUN sudo apt update&& sudo apt install curl -y&& sudo apt install m4 -y&& opam pin add coq 8.11.1&& eval $(opam env)&& cd ..&& git clone https://github.com/atlanmod/CoqTL.git&& cd CoqTL&& cd fr.inria.atlanmod.coqtl.coq&& git clean -fdx&& rm _CoqProject
+ ---> Running in 91127dbbef8b
+[91m
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+[0mGet:1 http://deb.debian.org/debian buster InRelease [121 kB]
+Get:2 http://security.debian.org/debian-security buster/updates InRelease [65.4 kB]
+Get:3 http://deb.debian.org/debian buster-updates InRelease [51.9 kB]
+Get:4 http://deb.debian.org/debian buster/main amd64 Packages [7905 kB]
+Get:5 http://security.debian.org/debian-security buster/updates/main amd64 Packages [208 kB]
+Get:6 http://deb.debian.org/debian buster-updates/main amd64 Packages.diff/Index [3688 B]
+Get:7 http://deb.debian.org/debian buster-updates/main amd64 Packages 2020-06-04-2016.16.pdiff [1101 B]
+Get:8 http://deb.debian.org/debian buster-updates/main amd64 Packages 2020-06-07-1403.53.pdiff [439 B]
+Get:9 http://deb.debian.org/debian buster-updates/main amd64 Packages 2020-06-13-2000.26.pdiff [552 B]
+Get:9 http://deb.debian.org/debian buster-updates/main amd64 Packages 2020-06-13-2000.26.pdiff [552 B]
+Fetched 8358 kB in 3s (2582 kB/s)
+Reading package lists...
+Building dependency tree...
+Reading state information...
+12 packages can be upgraded. Run 'apt list --upgradable' to see them.
+[91m
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+[0mReading package lists...
+Building dependency tree...
+Reading state information...
+curl is already the newest version (7.64.0-4+deb10u1).
+0 upgraded, 0 newly installed, 0 to remove and 12 not upgraded.
+[91m
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+[0mReading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  libsigsegv2
+Suggested packages:
+  m4-doc
+The following NEW packages will be installed:
+  libsigsegv2 m4
+0 upgraded, 2 newly installed, 0 to remove and 12 not upgraded.
+Need to get 236 kB of archives.
+After this operation, 419 kB of additional disk space will be used.
+Get:1 http://deb.debian.org/debian buster/main amd64 libsigsegv2 amd64 2.12-2 [32.8 kB]
+Get:2 http://deb.debian.org/debian buster/main amd64 m4 amd64 1.4.18-2 [203 kB]
+[91mdebconf: delaying package configuration, since apt-utils is not installed
+[0mFetched 236 kB in 0s (624 kB/s)
+Selecting previously unselected package libsigsegv2:amd64.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 17379 files and directories currently installed.)
+Preparing to unpack .../libsigsegv2_2.12-2_amd64.deb ...
+Unpacking libsigsegv2:amd64 (2.12-2) ...
+Selecting previously unselected package m4.
+Preparing to unpack .../archives/m4_1.4.18-2_amd64.deb ...
+Unpacking m4 (1.4.18-2) ...
+Setting up libsigsegv2:amd64 (2.12-2) ...
+Setting up m4 (1.4.18-2) ...
+Processing triggers for libc-bin (2.28-10) ...
+coq is now pinned to version 8.11.1
+
+The following actions will be performed:
+  - install conf-findutils 1       [required by coq]
+  - install conf-m4        1       [required by ocamlfind]
+  - install ocamlfind      1.8.1   [required by coq]
+  - install num            1.3     [required by coq]
+  - install coq            8.11.1*
+===== 5 to install =====
+
+<><> Gathering sources ><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+[num.1.3] downloaded from https://github.com/ocaml/num/archive/v1.3.tar.gz
+[ocamlfind.1.8.1] downloaded from http://download.camlcity.org/download/findlib-1.8.1.tar.gz
+[coq.8.11.1] downloaded from https://github.com/coq/coq/archive/V8.11.1.tar.gz
+
+<><> Processing actions <><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+-> installed conf-findutils.1
+-> installed conf-m4.1
+-> installed ocamlfind.1.8.1
+-> installed num.1.3
+-> installed coq.8.11.1
+Done.
+# Run eval $(opam env) to update the current shell environment
+[91mCloning into 'CoqTL'...
+[0mRemoving intermediate container 91127dbbef8b
+ ---> 6732cee53473
+Step 3/4 : ADD _CoqProject .
+ ---> 7cce0b2cc239
+Step 4/4 : RUN  coq_makefile -f _CoqProject -o Makefile&& make
+ ---> Running in d6ddd9a9bcf0
+[91m/bin/sh: 1: coq_makefile: not found
+[0m
